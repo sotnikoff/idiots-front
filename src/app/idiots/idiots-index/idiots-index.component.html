@@ -1,0 +1,13 @@
+<h1>Idiots</h1>
+
+<div class="row header">
+  <div>Idiot name</div>
+  <div>R* Id</div>
+</div>
+
+<div class="row" *ngFor="let idiot of idiots" >
+  <div>{{ idiot.name }}</div>
+  <div>{{ idiot.rockId }}</div>
+</div>
+
+<app-paginator></app-paginator>
