@@ -1,1 +1,19 @@
-<p>idiots-show works!</p>
+<div class="main_wrapper_idiots">
+  <app-language-changer></app-language-changer>
+
+  <h1>{{ 'idiots.show.title' | translate }}</h1>
+  <div class="name">
+    <h2>__Anastasyua__</h2>
+    <img routerLink="/idiots/1/edit" src="/assets/edit.png" alt="edit">
+  </div>
+  
+
+  <p><span>{{ 'idiots.attributes.rStarId' | translate }}:</span> 1234567</p>
+  <p><span>{{ 'idiots.attributes.deathDate' | translate }}:</span> 30.11.1999</p>
+  <p><span>{{ 'idiots.attributes.pazientDiagnos' | translate }}:</span> Крайне пиздлявый ублюдок</p>
+  <p><span>{{ 'idiots.attributes.commnent' | translate }}:</span> Крайне пиздлявый ублюдок</p>
+  <p><span>{{ 'idiots.attributes.aggressive' | translate }}:</span> Neeeeeeeeeeeeeein!!!!!!!</p>
+  <p><span>{{ 'idiots.attributes.momJoke' | translate }}:</span> {{ 'idiots.attributes.momJokeVariants.often' | translate }}</p>
+  <br>
+  <p><a routerLink="/idiots">{{ 'idiots.show.backToList' | translate }}</a></p>
+</div>

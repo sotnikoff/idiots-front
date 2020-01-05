@@ -1,0 +1,28 @@
+{
+  "idiots": {
+    "index": {
+      "title": "Die Dolbojobenliste",
+      "table": {
+        "nameHeader": "Dolbodjatlenname",
+        "rStarIdHeader": "R-Zwösdung ID"
+      }
+    },
+    "show": {
+      "title": "Die Dolbojobenregistrierungskarte",
+      "backToList": "Zurück zu der Dolbojobenliste"
+    },
+    "attributes": {
+      "rStarId": "R-Zwösdung ID",
+      "deathDate": "Kaputdate",
+      "pazientDiagnos": "Krankenpsichuschkenbild",
+      "commnent": "Kommentar",
+      "aggressive": "Pisdjachkenrasdavachtung",
+      "momJoke": "Mamkenschutken",
+      "momJokeVariants": {
+        "seldom": "wenige Mamkenschutken",
+        "medium": "viele Mamkenschutken",
+        "often": "das Mamkenschutkengott"
+      }
+    }
+  }
+}
