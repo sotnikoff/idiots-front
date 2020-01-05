@@ -21,4 +21,13 @@ export class IdiotService {
     idiot.id = id;
     return of(idiot);
   }
+
+  save(record: Idiot): any {
+    const idiot = new Idiot().fromJson(record);
+    if (record.id) {
+      return of(idiot);
+    } else {
+      return of(idiot);
+    }
+  }
 }

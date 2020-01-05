@@ -15,12 +15,22 @@
       "save": "Spaßien und potußien",
       "cancel": "Kapitulieren"
     },
+    "edit": {
+      "title": "Patientperepißeitung"
+    },
+    "languageChanger": {
+      "changeLanguage": "Sprache pomenjaiten"
+    },
+    "common": {
+      "yes": "Ja woll!!",
+      "no": "Neeein!!"
+    },
     "attributes": {
       "name": "Dolbodjatlename",
       "rStarId": "R-Zwösdung ID",
-      "deathDate": "Kaputdate",
+      "deathDate": "Pereebachtungdate",
       "pazientDiagnos": "Krankenpsichuschkenbild",
-      "comment": "Kommentar",
+      "comment": "Pisdabolung",
       "aggressive": "Pisdjatschkenrasdavachtung",
       "momJoke": "Mamkenschutken",
       "momJokeVariants": {

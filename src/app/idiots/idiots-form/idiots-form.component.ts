@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Idiot } from 'src/app/models/idiot';
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IdiotService } from 'src/app/services/idiot.service';
 
 @Component({
   selector: 'app-idiots-form',
@@ -14,19 +15,15 @@ export class IdiotsFormComponent implements OnInit {
 
   idiotForm: FormGroup;
   constructor(private formBuilder: FormBuilder,
+              private idiotService: IdiotService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.buildForm();
   }
 
-  change(event) {
-    console.log(event);
-  }
-
   buildForm(): void {
     this.idiotForm = this.formBuilder.group({
-      id: [this.idiot.id],
       name: [this.idiot.name],
       momJoke: [this.idiot.momJoke],
       deathDate: [this.idiot.deathDate],
@@ -37,7 +34,18 @@ export class IdiotsFormComponent implements OnInit {
     });
   }
 
-  close() {
+  save(): void {
+    if (!this.idiotForm.valid) {
+      return;
+    }
+
+    const savedIdiot = Object.assign({ id: this.idiot.id }, this.idiotForm.getRawValue());
+    this.idiotService.save(savedIdiot).subscribe(r => {
+      this.router.navigateByUrl(`/idiots/${r.id}`);
+    });
+  }
+
+  close(): void {
     this.router.navigateByUrl('/idiots');
   }
 

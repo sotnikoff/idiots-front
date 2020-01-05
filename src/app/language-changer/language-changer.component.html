@@ -1,5 +1,10 @@
 <div class="wrapper">
-  <div *ngFor="let lang of languages" class="language" [title]="lang.title">
-    <img [src]="'/assets/flags/' + lang.code + '.png'" [alt]="lang.title" (click)="changeLanguage(lang.code)">
+  <div class="languages" *ngIf="active">
+    <div *ngFor="let lang of languages" class="language" [title]="lang.title">
+      <img [src]="'/assets/flags/' + lang.code + '.png'" [alt]="lang.title" (click)="changeLanguage(lang.code)">
+    </div>
   </div>
+  <div *ngIf="!active">
+    <button (click)="active = true">{{ 'idiots.languageChanger.changeLanguage' | translate }}</button>
+  </div> 
 </div>

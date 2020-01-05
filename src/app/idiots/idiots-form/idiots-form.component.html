@@ -1,4 +1,4 @@
-<form *ngIf="idiot && idiotForm" [formGroup]="idiotForm">
+<form *ngIf="idiot && idiotForm" [formGroup]="idiotForm" (ngSubmit)="save()">
   <div class="input">
     <label>
       <div>{{ 'idiots.attributes.name' | translate }}</div>
@@ -16,21 +16,21 @@
   <div class="input">
     <label>
       <div>{{ 'idiots.attributes.deathDate' | translate }}</div>
-      <input type="date" formControlName="deathDate" (change)="change($event)">
+      <input type="date" formControlName="deathDate">
     </label>
   </div>
 
   <div class="input">
     <label>
       <div>{{ 'idiots.attributes.pazientDiagnos' | translate }}</div>
-      <input type="text" formControlName="pazientDiagnos">
+      <textarea formControlName="pazientDiagnos"></textarea>
     </label>
   </div>
 
   <div class="input">
     <label>
       <div>{{ 'idiots.attributes.comment' | translate }}</div>
-      <input type="text" formControlName="comment">
+      <textarea formControlName="comment"></textarea>
     </label>
   </div>
 
@@ -54,7 +54,7 @@
   </div>
 
   <div class="buttons">
-    <button class="green">{{ 'idiots.form.save' | translate }}</button>
+    <button type="submit" class="green">{{ 'idiots.form.save' | translate }}</button>
     <button (click)="close()">{{ 'idiots.form.cancel' | translate }}</button>
   </div>
 </form>

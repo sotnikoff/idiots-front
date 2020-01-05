@@ -14,7 +14,7 @@ export class LanguageChangerComponent implements OnInit {
     { code: 'de', title: 'Deutsch' },
     { code: 'gd', title: 'Gandeutsch' }
   ];
-
+  active = false;
   constructor(private translate: TranslateService) { }
 
   ngOnInit() {
@@ -23,6 +23,7 @@ export class LanguageChangerComponent implements OnInit {
   changeLanguage(lang: string) {
     localStorage.setItem('idiotLanguage', lang);
     this.translate.setDefaultLang(lang);
+    this.active = false;
   }
 
 }
