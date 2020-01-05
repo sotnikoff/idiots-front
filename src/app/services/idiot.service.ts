@@ -24,10 +24,9 @@ export class IdiotService {
 
   save(record: Idiot): any {
     const idiot = new Idiot().fromJson(record);
-    if (record.id) {
-      return of(idiot);
-    } else {
-      return of(idiot);
+    if (!record.id) {
+      idiot.id = 1;
     }
+    return of(idiot);
   }
 }

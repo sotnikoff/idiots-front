@@ -1,1 +1,5 @@
-<p>idiots-new works!</p>
+<div class="wrapper">
+  <app-language-changer></app-language-changer>
+  <h3>{{ 'idiots.new.title' | translate }}</h3>
+  <app-idiots-form [idiot]="idiot" *ngIf="idiot"></app-idiots-form>
+</div>

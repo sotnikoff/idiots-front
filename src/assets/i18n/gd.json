@@ -2,10 +2,14 @@
   "idiots": {
     "index": {
       "title": "Die Dolbojobenliste",
+      "new": "Dolbojobeßosdawachtung",
       "table": {
         "nameHeader": "Dolbodjatlenname",
         "rStarIdHeader": "R-Zwösdung ID"
       }
+    },
+    "new": {
+      "title": "Dolbojobeßosdawachtung"
     },
     "show": {
       "title": "Die Dolbojobenregistrierungskarte",

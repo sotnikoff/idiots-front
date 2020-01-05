@@ -3,6 +3,11 @@
 
   <h1>{{ 'idiots.index.title' | translate }}</h1>
 
+  <div routerLink="/idiots/new" class="new">
+    <img src="/assets/new.png" alt="new">
+    <div>{{ 'idiots.index.new' | translate }}</div>
+  </div>
+  
   <div class="table">
     <div class="row header">
       <div>{{ 'idiots.index.table.nameHeader' | translate }}</div>
