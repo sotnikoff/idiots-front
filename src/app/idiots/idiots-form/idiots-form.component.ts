@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Idiot } from 'src/app/models/idiot';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-idiots-form',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdiotsFormComponent implements OnInit {
 
-  constructor() { }
+  @Input() idiot: Idiot;
 
-  ngOnInit() {
+  idiotForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,
+              private router: Router) { }
+
+  ngOnInit(): void {
+    this.buildForm();
+  }
+
+  change(event) {
+    console.log(event);
+  }
+
+  buildForm(): void {
+    this.idiotForm = this.formBuilder.group({
+      id: [this.idiot.id],
+      name: [this.idiot.name],
+      momJoke: [this.idiot.momJoke],
+      deathDate: [this.idiot.deathDate],
+      aggressive: [this.idiot.aggressive],
+      comment: [this.idiot.comment],
+      pazientDiagnos: [this.idiot.pazientDiagnos],
+      rStarId: [this.idiot.rStarId]
+    });
+  }
+
+  close() {
+    this.router.navigateByUrl('/idiots');
   }
 
 }

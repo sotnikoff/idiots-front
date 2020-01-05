@@ -1,1 +1,60 @@
-<p>idiots-form works!</p>
+<form *ngIf="idiot && idiotForm" [formGroup]="idiotForm">
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.name' | translate }}</div>
+      <input type="text" formControlName="name">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.rStarId' | translate }}</div>
+      <input type="text" formControlName="rStarId">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.deathDate' | translate }}</div>
+      <input type="date" formControlName="deathDate" (change)="change($event)">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.pazientDiagnos' | translate }}</div>
+      <input type="text" formControlName="pazientDiagnos">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.comment' | translate }}</div>
+      <input type="text" formControlName="comment">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.aggressive' | translate }}</div>
+      <input type="checkbox" formControlName="aggressive">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.attributes.momJoke' | translate }}</div>
+      <select formControlName="momJoke">
+        <option value="none">{{ 'idiots.attributes.momJokeVariants.none' | translate }}</option>
+        <option value="seldom">{{ 'idiots.attributes.momJokeVariants.seldom' | translate }}</option>
+        <option value="medium">{{ 'idiots.attributes.momJokeVariants.medium' | translate }}</option>
+        <option value="often">{{ 'idiots.attributes.momJokeVariants.often' | translate }}</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="buttons">
+    <button class="green">{{ 'idiots.form.save' | translate }}</button>
+    <button (click)="close()">{{ 'idiots.form.cancel' | translate }}</button>
+  </div>
+</form>

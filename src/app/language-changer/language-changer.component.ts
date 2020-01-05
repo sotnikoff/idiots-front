@@ -21,6 +21,7 @@ export class LanguageChangerComponent implements OnInit {
   }
 
   changeLanguage(lang: string) {
+    localStorage.setItem('idiotLanguage', lang);
     this.translate.setDefaultLang(lang);
   }
 

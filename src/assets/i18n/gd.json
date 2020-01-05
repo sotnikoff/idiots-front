@@ -11,14 +11,20 @@
       "title": "Die Dolbojobenregistrierungskarte",
       "backToList": "Zurück zu der Dolbojobenliste"
     },
+    "form": {
+      "save": "Spaßien und potußien",
+      "cancel": "Kapitulieren"
+    },
     "attributes": {
+      "name": "Dolbodjatlename",
       "rStarId": "R-Zwösdung ID",
       "deathDate": "Kaputdate",
       "pazientDiagnos": "Krankenpsichuschkenbild",
-      "commnent": "Kommentar",
-      "aggressive": "Pisdjachkenrasdavachtung",
+      "comment": "Kommentar",
+      "aggressive": "Pisdjatschkenrasdavachtung",
       "momJoke": "Mamkenschutken",
       "momJokeVariants": {
+        "none": "keine Mamkenschutken",
         "seldom": "wenige Mamkenschutken",
         "medium": "viele Mamkenschutken",
         "often": "das Mamkenschutkengott"

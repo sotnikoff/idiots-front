@@ -9,6 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class AppComponent {
   constructor(translate: TranslateService) {
-    translate.setDefaultLang('gd');
+    const language = localStorage.getItem('idiotLanguage');
+    if (language) {
+      translate.setDefaultLang(language);
+    } else {
+      translate.setDefaultLang('ru');
+    }
   }
 }
