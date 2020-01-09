@@ -1,32 +1,50 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
 import { Idiot } from '../models/idiot';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
+import pick from 'lodash/pick';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IdiotService {
 
-  constructor() { }
+  permittedAttributes = [
+    'name', 'deathDate', 'rStarId', 'pazientDiagnos', 'comment', 'aggressive', 'momJoke'
+  ];
+  constructor(private fire: AngularFirestore) {
+  }
 
-  show(id: number) {
-    const idiot = new Idiot();
-    idiot.comment = 'asdasd';
-    idiot.deathDate = '2020-01-05';
-    idiot.momJoke = 'medium';
-    idiot.pazientDiagnos = 'asdasdd';
-    idiot.rStarId = 13123123;
-    idiot.aggressive = true;
-    idiot.name = 'Name';
-    idiot.id = id;
-    return of(idiot);
+  show(id: string) {
+    return this.fire.collection('idiots').doc(id).snapshotChanges().pipe(
+      map(res => {
+        const idiot = new Idiot();
+        Object.assign(idiot, res.payload.data());
+        idiot.id = res.payload.id;
+        return idiot;
+      })
+    );
+  }
+
+  index() {
+    return this.fire.collection('idiots').snapshotChanges().pipe(
+      map((r: any) => {
+        return r.map((res: any) => {
+          const idiot = new Idiot();
+          Object.assign(idiot, res.payload.doc.data());
+          idiot.id = res.payload.doc.id;
+          return idiot;
+        });
+      })
+    );
   }
 
   save(record: Idiot): any {
-    const idiot = new Idiot().fromJson(record);
+
     if (!record.id) {
-      idiot.id = 1;
+      return from(this.fire.collection('idiots').doc(record.id).set(pick(record, this.permittedAttributes)));
     }
-    return of(idiot);
+    return from(this.fire.collection('idiots').add(record));
   }
 }

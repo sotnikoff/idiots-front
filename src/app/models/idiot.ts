@@ -3,16 +3,18 @@ const decamelCase = require('decamelize');
 import * as moment from 'moment';
 
 export class Idiot {
-  id: number;
+  id: string;
   name: string;
-  deathDate: string;
+  deathDate: any;
   rStarId: number;
   pazientDiagnos: string;
   comment: string;
   aggressive: boolean;
   momJoke: string;
-  createdAt: string;
-  updatedAt: string;
+
+  get deathDateFormatted(): string {
+    return this.deathDate ? moment(this.deathDate.seconds * 1000).format('DD.MM.YYYY') : null;
+  }
 
   fromJson(data): Idiot {
     Object.keys(data).forEach(k => {
@@ -27,9 +29,5 @@ export class Idiot {
       obj[decamelCase(k)] = this[k];
     });
     return obj;
-  }
-
-  get createdAtFormatted(): string {
-    return this.createdAt ? moment(this.createdAt).format('DD.MM.YYYY') : null;
   }
 }

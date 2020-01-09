@@ -39,7 +39,7 @@ export class IdiotsFormComponent implements OnInit {
       return;
     }
 
-    const savedIdiot = Object.assign({ id: this.idiot.id }, this.idiotForm.getRawValue());
+    const savedIdiot = Object.assign({ }, this.idiotForm.getRawValue());
     this.idiotService.save(savedIdiot).subscribe(r => {
       this.router.navigateByUrl(`/idiots/${r.id}`);
     });

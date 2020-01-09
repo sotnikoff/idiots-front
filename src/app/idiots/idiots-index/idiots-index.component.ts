@@ -1,31 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { IdiotService } from 'src/app/services/idiot.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-idiots-index',
   templateUrl: './idiots-index.component.html',
   styleUrls: ['./idiots-index.component.sass']
 })
-export class IdiotsIndexComponent implements OnInit {
+export class IdiotsIndexComponent implements OnInit, OnDestroy {
 
-  idiots = [
-    { id: 1, name: 'Idiot 1', rockId: 1234567 },
-    { id: 2, name: 'Idiot 2', rockId: 1234567 },
-    { id: 3, name: 'Idiot 3', rockId: 1234567 },
-    { id: 4, name: 'Idiot 4', rockId: 1234567 },
-    { id: 5, name: 'Idiot 5', rockId: 1234567 },
-    { id: 6, name: 'Idiot 6', rockId: 1234567 },
-    { id: 7, name: 'Idiot 7', rockId: 1234567 },
-    { id: 8, name: 'Idiot 8', rockId: 1234567 },
-    { id: 9, name: 'Idiot 9', rockId: 1234567 },
-    { id: 10, name: 'Idiot 10', rockId: 1234567 },
-    { id: 11, name: 'Idiot 11', rockId: 1234567 },
-    { id: 12, name: 'Idiot 12', rockId: 1234567 },
-    { id: 13, name: 'Idiot 13', rockId: 1234567 }
-  ];
+  idiots = [];
+  destroySubject$$: Subject<any>;
 
-  constructor() { }
+  constructor(private idiotsService: IdiotService) {
+    this.destroySubject$$ = new Subject();
+  }
 
   ngOnInit() {
+    this.idiotsService.index().pipe(
+      takeUntil(this.destroySubject$$)
+    ).subscribe(r => {
+      this.idiots = r;
+    });
+  }
+
+  ngOnDestroy() {
+    this.destroySubject$$.next();
+    this.destroySubject$$.complete();
   }
 
 }
