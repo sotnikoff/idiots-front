@@ -4,6 +4,7 @@
       <div>{{ 'idiots.attributes.name' | translate }}</div>
       <input type="text" formControlName="name">
     </label>
+    <p class="error" *ngIf="idiotForm.controls.name.errors.required">{{ 'idiots.form.validators.name.required' | translate }}</p>
   </div>
 
   <div class="input">

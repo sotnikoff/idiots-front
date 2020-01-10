@@ -13,6 +13,7 @@ export class IdiotsNewComponent implements OnInit {
 
   ngOnInit() {
     this.idiot = new Idiot();
+    this.idiot.momJoke = 'none';
   }
 
 }

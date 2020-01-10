@@ -24,7 +24,7 @@ export class IdiotsFormComponent implements OnInit {
 
   buildForm(): void {
     this.idiotForm = this.formBuilder.group({
-      name: [this.idiot.name],
+      name: [this.idiot.name, Validators.required],
       momJoke: [this.idiot.momJoke],
       deathDate: [this.idiot.deathDate],
       aggressive: [this.idiot.aggressive],
@@ -39,7 +39,7 @@ export class IdiotsFormComponent implements OnInit {
       return;
     }
 
-    const savedIdiot = Object.assign({ }, this.idiotForm.getRawValue());
+    const savedIdiot = Object.assign({ id: this.idiot.id }, this.idiotForm.getRawValue());
     this.idiotService.save(savedIdiot).subscribe(r => {
       this.router.navigateByUrl(`/idiots/${r.id}`);
     });

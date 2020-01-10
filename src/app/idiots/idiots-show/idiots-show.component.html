@@ -4,7 +4,10 @@
   <h1>{{ 'idiots.show.title' | translate }}</h1>
   <div class="name">
     <h2>{{ idiot.name }}</h2>
-    <img routerLink="/idiots/1/edit" src="/assets/edit.png" alt="edit">
+    <div>
+      <img [routerLink]="'/idiots/' + idiot.id + '/edit/'" src="/assets/edit.png" alt="edit">
+      <img [routerLink]="'/idiots/' + idiot.id + '/delete/'" src="/assets/delete.png" alt="edit">
+    </div>
   </div>
   
 

@@ -27,24 +27,28 @@ export class IdiotService {
     );
   }
 
+  delete(id: string) {
+    return from(this.fire.collection('idiots').doc(id).delete());
+  }
+
   index() {
-    return this.fire.collection('idiots').snapshotChanges().pipe(
-      map((r: any) => {
-        return r.map((res: any) => {
-          const idiot = new Idiot();
-          Object.assign(idiot, res.payload.doc.data());
-          idiot.id = res.payload.doc.id;
-          return idiot;
-        });
-      })
-    );
+    return this.fire.collection('idiots')
+      .snapshotChanges().pipe(
+        map((r: any) => {
+          return r.map((res: any) => {
+            const idiot = new Idiot();
+            Object.assign(idiot, res.payload.doc.data());
+            idiot.id = res.payload.doc.id;
+            return idiot;
+          });
+        })
+      );
   }
 
   save(record: Idiot): any {
-
-    if (!record.id) {
+    if (record.id) {
       return from(this.fire.collection('idiots').doc(record.id).set(pick(record, this.permittedAttributes)));
     }
-    return from(this.fire.collection('idiots').add(record));
+    return from(this.fire.collection('idiots').add(pick(record, this.permittedAttributes)));
   }
 }

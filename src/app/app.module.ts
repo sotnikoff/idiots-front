@@ -18,6 +18,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { IdiotsDeleteComponent } from './idiots/idiots-delete/idiots-delete.component';
+import { MainComponent } from './main/main.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +34,9 @@ export function createTranslateLoader(http: HttpClient) {
     IdiotsNewComponent,
     IdiotsEditComponent,
     PaginatorComponent,
-    LanguageChangerComponent
+    LanguageChangerComponent,
+    IdiotsDeleteComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

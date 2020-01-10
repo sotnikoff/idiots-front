@@ -17,7 +17,12 @@
     },
     "form": {
       "save": "Spaßien und potußien",
-      "cancel": "Kapitulieren"
+      "cancel": "Kapitulieren",
+      "validators": {
+        "name": {
+          "required": "Dolbodjatlename ist objasahtet"
+        }
+      }
     },
     "edit": {
       "title": "Patientperepißeitung"

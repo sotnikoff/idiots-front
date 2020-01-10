@@ -20,7 +20,7 @@ export class IdiotsEditComponent implements OnInit {
       return this.idiotService.show(r.id);
     })).subscribe(r => {
       this.idiot = r;
-    }).unsubscribe();
+    });
   }
 
 }
