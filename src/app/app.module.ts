@@ -15,11 +15,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LanguageChangerComponent } from './language-changer/language-changer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { IdiotsDeleteComponent } from './idiots/idiots-delete/idiots-delete.component';
 import { MainComponent } from './main/main.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignOutComponent } from './auth/sign-out/sign-out.component';
+import { SignFormComponent } from './auth/sign-form/sign-form.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +40,11 @@ export function createTranslateLoader(http: HttpClient) {
     PaginatorComponent,
     LanguageChangerComponent,
     IdiotsDeleteComponent,
-    MainComponent
+    MainComponent,
+    SignUpComponent,
+    SignInComponent,
+    SignOutComponent,
+    SignFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -1,0 +1,17 @@
+<form *ngIf="authForm" [formGroup]="authForm">
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.login.email' | translate }}</div>
+      <input type="email" formControlName="email">
+    </label>
+  </div>
+
+  <div class="input">
+    <label>
+      <div>{{ 'idiots.login.password' | translate }}</div>
+      <input type="password" formControlName="password">
+    </label>
+  </div>
+
+</form>
